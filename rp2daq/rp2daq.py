@@ -29,7 +29,7 @@ import traceback
 import tkinter
 import types
 
-import c_code_parser
+from rp2daq import c_code_parser as c_code_parser
 
 
 

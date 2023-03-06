@@ -7,6 +7,20 @@
 import pathlib
 import re
 
+from importlib import resources
+
+included_files = [
+    "adc_internal.c",
+    "identify.c",
+    "pin_out.c",
+    "pwm.c",
+    "stepper.c"
+]
+
+def load_c_file(filename, package="rp2daq"):
+    with resources.open_text(package,filename) as c_file:
+        c_code = c_file.read()
+    return c_code
 
 def remove_c_comments(f):
     f = re.sub("\/\*.+?\*\/", "", f, flags=re.M+re.S) # rm block comments
@@ -178,9 +192,9 @@ def generate_report_binary_interface():
     return report_lengths, report_header_signatures, arg_names_for_reports
 
 def gather_C_code():
-    C_code = open('rp2daq.c').read()
-    for included in pathlib.Path('include').glob('*.c'):
-        C_code += open(included).read()
+    C_code = load_c_file('rp2daq.c')
+    for included in included_files:
+        C_code += load_c_file(included,package="rp2daq.include")
     return C_code
 
 if __name__ == "__main__":
