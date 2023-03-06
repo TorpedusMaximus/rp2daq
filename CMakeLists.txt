@@ -4,13 +4,13 @@ include(pico_sdk_import.cmake)
 project(rp2daq)
 pico_sdk_init()
 
-# include_directories("include")
+# include_directories("rp2daq/include")
 add_executable(rp2daq
-        rp2daq.c
+        rp2daq/rp2daq.c
 )
 
 
-# file(GLOB SOURCES "include/*.c")
+# file(GLOB SOURCES "rp2daq/include/*.c")
 
 pico_enable_stdio_usb(rp2daq 1)
 pico_enable_stdio_uart(rp2daq 0)
