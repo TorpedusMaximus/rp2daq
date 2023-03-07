@@ -26,6 +26,13 @@ If needed, entirely new capabilities can be added into the [open source](LICENSE
     * [ ] [C programming: adding new commands to rp2daq's firmware](docs/DEVELOPERS.md)
     * [x] [PAQ - Presumably asked questions](#paq-presumably-asked-questions)
 
+# Install rp2daq python package
+To install rp2daq package download repository and in desired project terminal type:
+```bash
+pip install path_to_rp2daq_repo
+```
+From now on you can use all rp2daq functions in your project.
+
 # No programming: first steps
 
 ### Uploading rp2daq firmware
