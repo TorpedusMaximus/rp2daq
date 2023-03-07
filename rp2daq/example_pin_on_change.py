@@ -6,8 +6,8 @@ wait_sec = 1.
 
 import time
 
-import rp2daq
-rp = rp2daq.Rp2daq()
+from rp2daq.rp2daq import Rp2daq
+rp =Rp2daq()
 
 # Optional: Let's prepare PWM for some artificial signal on pin 0
 # Note that even 10kHz clock works, i.e. 100k reports per second can be received

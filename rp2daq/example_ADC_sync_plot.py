@@ -6,11 +6,11 @@ width, height = 800, 600
 channels = [0, 1, 2,] #,  3, 4]     # 0,1,2 are pins 26-28;  3 is V_ref and 4 is internal thermometer
 kSPS_per_ch = 100 * len(channels)  # one-second run
 
-import rp2daq
+from  rp2daq.rp2daq import Rp2daq
 import sys
 import tkinter
 
-rp = rp2daq.Rp2daq()
+rp = Rp2daq()
 
 ADC_data = rp.internal_adc(
         channel_mask=sum(2**ch for ch in channels),

@@ -1,8 +1,9 @@
 #!/usr/bin/python3  
 #-*- coding: utf-8 -*-
 
-import rp2daq, time
-rp = rp2daq.Rp2daq()
+import time
+from rp2daq.rp2daq import Rp2daq
+rp = Rp2daq()
 
 # optimum settings to control a small servo (190 Hz) 
 # typically the timing range is 0.8 .. 2.2 ms pulse width, but YMMV

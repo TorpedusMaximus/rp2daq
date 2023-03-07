@@ -17,12 +17,12 @@ matplotlib's interactive plot.
 
 
 
-import rp2daq 
+from rp2daq.rp2daq import Rp2daq
 import threading
 import time
 
 ## Connect to the device
-rp = rp2daq.Rp2daq()
+rp = Rp2daq()
 
 ## User options
 channel_names = {0:"pin 26", 1:"pin 27", 2:"pin 28", 3:"ref V", 4:"int thermo"}

@@ -9,8 +9,8 @@ label = tkinter.Label(window)
 label.grid(column=0, row=0)
 
 try:
-    import rp2daq
-    rp = rp2daq.Rp2daq()
+    from rp2daq.rp2daq import Rp2daq 
+    rp = Rp2daq()
 
     id_string = "".join(chr(b) for b in rp.identify()["data"])
     label.config(text = "Successfully connected to " + id_string)

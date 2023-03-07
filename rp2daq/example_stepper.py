@@ -4,8 +4,8 @@
 import time
 import threading
 
-import rp2daq
-rp = rp2daq.Rp2daq()       # tip: you can use required_device_id='42:42:42:42:42:42:42:42'
+from rp2daq.rp2daq import Rp2daq
+rp = Rp2daq()       # tip: you can use required_device_id='42:42:42:42:42:42:42:42'
 
 ## 1.  Define tuples of coordinates the steppers will go to
 ##     (note we [mis]use mutable data types to act as global variables)
