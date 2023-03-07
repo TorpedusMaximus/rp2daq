@@ -1,30 +1,36 @@
-#!/usr/bin/python3  
-#-*- coding: utf-8 -*-
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
-import tkinter      
-window = tkinter.Tk()   # initialize the graphical interface
+import tkinter
+
+window = tkinter.Tk()  # initialize the graphical interface
 window.title("RP2DAQ test app")
 
 label = tkinter.Label(window)
 label.grid(column=0, row=0)
 
 try:
-    from rp2daq.rp2daq import Rp2daq 
+    from rp2daq.rp2daq import Rp2daq
+
     rp = Rp2daq()
 
     id_string = "".join(chr(b) for b in rp.identify()["data"])
-    label.config(text = "Successfully connected to " + id_string)
+    label.config(text="Successfully connected to " + id_string)
 
     def set_LED(state):
-        rp.pin_set(25, state) # onboard LED assigned to pin 25 on R Pi Pico
+        rp.pin_set(25, state)  # onboard LED assigned to pin 25 on R Pi Pico
 
-    btn_on = tkinter.Button(window, text='LED on', bg='green3', command=lambda:set_LED(1))
+    btn_on = tkinter.Button(
+        window, text="LED on", bg="green3", command=lambda: set_LED(1)
+    )
     btn_on.grid(column=0, row=1)
 
-    btn_off = tkinter.Button(window, text='LED off', bg='red3', command=lambda:set_LED(0))
+    btn_off = tkinter.Button(
+        window, text="LED off", bg="red3", command=lambda: set_LED(0)
+    )
     btn_off.grid(column=0, row=2)
 
-except Exception as e: 
+except Exception as e:
     label.config(text=str(e))
 
 window.mainloop()
